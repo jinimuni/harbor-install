@@ -1,0 +1,40 @@
+expose:
+  type: nodePort # new
+  nodePort:
+    #name: harbor
+    ports:
+      http:
+        port: 8080
+        targetPort: 8080
+        nodePort: 30002
+      https:
+        port: 8443  # new
+        targetPort: 8443  # new
+        nodePort: 30003  # new
+    selector:
+      app.kubernetes.io/component: portal # new
+      component: portal
+  tls:
+    auto:
+      commonName: mjchoi.harbor.core
+
+persistence:
+  persistentVolumeClaim:
+    registry:
+      existingClaim: "harbor-registry-local"
+      storageClass: "local-storage"
+    jobservice:
+      jobLog:
+        existingClaim: "harbor-job-service-local"
+        storageClass: "local-storage"
+    database:
+      existingClaim: "harbor-database-local"
+      storageClass: "local-storage"
+    redis:
+      existingClaim: "harbor-redis-local"
+      storageClass: "local-storage"
+    trivy:
+      existingClaim: "harbor-trivy-local"
+      storageClass: "local-storage"
+
+harborAdminPassword: "gozldqkdwl2"
