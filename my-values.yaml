@@ -17,6 +17,8 @@ expose:
   tls:
     auto:
       commonName: mjchoi.harbor.core
+trivy:
+  enabled: false
 
 persistence:
   persistentVolumeClaim:
