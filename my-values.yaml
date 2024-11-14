@@ -24,19 +24,24 @@ persistence:
   persistentVolumeClaim:
     registry:
       existingClaim: "harbor-registry-local"
-      storageClass: "local-storage"
+      storageClass: "longhorn"
+      size: "2Gi"
     jobservice:
       jobLog:
         existingClaim: "harbor-job-service-local"
-        storageClass: "local-storage"
+        storageClass: "longhorn"
+        size: "1Gi"
     database:
       existingClaim: "harbor-database-local"
-      storageClass: "local-storage"
+      storageClass: "longhorn"
+      size: "1Gi"
     redis:
       existingClaim: "harbor-redis-local"
-      storageClass: "local-storage"
+      storageClass: "longhorn"
+      size: "1Gi"
     trivy:
       existingClaim: "harbor-trivy-local"
-      storageClass: "local-storage"
+      storageClass: "longhorn"
+      size: "1Gi"
 
 harborAdminPassword: "gozldqkdwl2"
