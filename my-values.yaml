@@ -21,6 +21,7 @@ trivy:
   enabled: false
 
 persistence:
+  enabled: true
   persistentVolumeClaim:
     registry:
       existingClaim: "harbor-registry-local"
